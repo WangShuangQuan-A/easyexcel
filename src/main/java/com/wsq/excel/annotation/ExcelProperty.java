@@ -6,6 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import static com.wsq.excel.metadata.ExcelColumnProperty.DEFAULT_INDEX;
+
 /**
  * @author jipengfei
  */
@@ -23,7 +25,7 @@ public @interface ExcelProperty {
      /**
       * @return
       */
-     int index() default 99999;
+     int index() default DEFAULT_INDEX;
 
      /**
       *

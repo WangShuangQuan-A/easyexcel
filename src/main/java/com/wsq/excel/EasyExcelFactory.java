@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Reader and writer factory class
@@ -36,6 +37,17 @@ public class EasyExcelFactory {
             @Override
             public void doAfterAllAnalysed(AnalysisContext context) {
             }
+
+            @Override
+            public Map<String, Object> getParams() {
+                return null;
+            }
+
+            @Override
+            public void setParams(Map map) {
+
+            }
+
         }, false).read(sheet);
         return rows;
     }

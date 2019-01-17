@@ -8,6 +8,7 @@ import com.wsq.excel.util.TypeUtil;
 import net.sf.cglib.beans.BeanMap;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author jipengfei
@@ -36,6 +37,16 @@ public class ModelBuildEventListener implements AnalysisEventListener {
 
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
+
+    }
+
+    @Override
+    public Map<String, Object> getParams() {
+        return null;
+    }
+
+    @Override
+    public void setParams(Map map) {
 
     }
 }
