@@ -20,12 +20,12 @@ public interface AnalysisEventListener<T> {
     /**
      * if have something to do after all  analysis
      */
-    void doAfterAllAnalysed(AnalysisContext context);
+    boolean doAfterAllAnalysed(AnalysisContext context);
 
-    /**
+ /*   *//**
      * 扩展字段
-     */
+     *//*
     Map<String,Object> getParams();
 
-    void setParams(Map<String,Object> params);
+    void setParams(Map<String,Object> params);*/
 }

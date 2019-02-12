@@ -27,6 +27,11 @@ public class ModelBuildEventListener implements AnalysisEventListener {
         }
     }
 
+    @Override
+    public boolean doAfterAllAnalysed(AnalysisContext context) {
+        return true;
+    }
+
     private Object buildUserModel(AnalysisContext context, List<String> stringList) throws Exception {
         ExcelHeadProperty excelHeadProperty = context.getExcelHeadProperty();
         Object resultModel = excelHeadProperty.getHeadClazz().newInstance();
@@ -35,12 +40,7 @@ public class ModelBuildEventListener implements AnalysisEventListener {
         return resultModel;
     }
 
-    @Override
-    public void doAfterAllAnalysed(AnalysisContext context) {
-
-    }
-
-    @Override
+/*    @Override
     public Map<String, Object> getParams() {
         return null;
     }
@@ -48,5 +48,5 @@ public class ModelBuildEventListener implements AnalysisEventListener {
     @Override
     public void setParams(Map map) {
 
-    }
+    }*/
 }

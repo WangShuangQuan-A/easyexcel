@@ -23,11 +23,11 @@ public class ExcelListener implements AnalysisEventListener {
     }
 
     @Override
-    public void doAfterAllAnalysed(AnalysisContext context) {
-        doSomething();
+    public boolean doAfterAllAnalysed(AnalysisContext context) {
+        return true;//doSomething();
     }
 
-    @Override
+/*    @Override
     public Map<String, Object> getParams() {
         return null;
     }
@@ -35,7 +35,7 @@ public class ExcelListener implements AnalysisEventListener {
     @Override
     public void setParams(Map map) {
 
-    }
+    }*/
 
     public void doSomething(){
         for (Object o:data) {

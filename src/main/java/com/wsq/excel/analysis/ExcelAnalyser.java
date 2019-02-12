@@ -16,12 +16,12 @@ public interface ExcelAnalyser {
      *
      * @param sheetParam
      */
-    void analysis(Sheet sheetParam);
+    boolean analysis(Sheet sheetParam);
 
     /**
      * parse all sheets
      */
-    void analysis();
+    boolean analysis();
 
     /**
      * get all sheet of workbook

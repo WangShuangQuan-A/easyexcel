@@ -9,6 +9,7 @@ import com.wsq.excel.exception.ExcelAnalysisException;
 import com.wsq.excel.metadata.Sheet;
 import com.wsq.excel.modelbuild.ModelBuildEventListener;
 import com.wsq.excel.support.ExcelTypeEnum;
+import lombok.extern.java.Log;
 
 import java.io.InputStream;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 /**
  * @author jipengfei
  */
+@Log
 public class ExcelAnalyserImpl implements ExcelAnalyser {
 
     private AnalysisContext analysisContext;
@@ -62,17 +64,18 @@ public class ExcelAnalyserImpl implements ExcelAnalyser {
     }
 
     @Override
-    public void analysis(Sheet sheetParam) {
+    public boolean analysis(Sheet sheetParam) {
         analysisContext.setCurrentSheet(sheetParam);
-        analysis();
+        return analysis();
     }
 
     @Override
-    public void analysis() {
+    public boolean analysis() {
         BaseSaxAnalyser saxAnalyser = getSaxAnalyser();
         appendListeners(saxAnalyser);
         saxAnalyser.execute();
-        analysisContext.getEventListener().doAfterAllAnalysed(analysisContext);
+
+        return analysisContext.getEventListener().doAfterAllAnalysed(analysisContext);
     }
 
     @Override

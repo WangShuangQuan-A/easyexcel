@@ -35,13 +35,15 @@ public abstract class BaseSaxAnalyser implements AnalysisEventRegisterCenter, Ex
     }
 
     @Override
-    public void analysis(Sheet sheetParam) {
+    public boolean analysis(Sheet sheetParam) {
         execute();
+        return true;
     }
 
     @Override
-    public void analysis() {
+    public boolean analysis() {
         execute();
+        return true;
     }
 
     /**

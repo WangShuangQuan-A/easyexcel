@@ -108,8 +108,8 @@ public class ExcelReader {
      *
      * @param sheet Read sheet
      */
-    public void read(Sheet sheet) {
-        analyser.analysis(sheet);
+    public boolean read(Sheet sheet) {
+        return analyser.analysis(sheet);
     }
 
     /**

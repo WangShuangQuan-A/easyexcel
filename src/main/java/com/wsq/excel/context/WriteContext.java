@@ -168,12 +168,13 @@ public class WriteContext {
             }
             addMergedRegionToCurrentSheet(startRow);
             int i = startRow;
-            for (; i < this.excelHeadProperty.getRowNum() + startRow; i++) {
-                Row row = WorkBookUtil.createRow(currentSheet, i);
+            Row row = WorkBookUtil.createRow(currentSheet, i);
+            int rowNum = this.excelHeadProperty.getRowNum();
+            for (; i < rowNum + startRow; i++) {
                 if (null != afterWriteHandler) {
                     this.afterWriteHandler.row(i, row);
                 }
-                addOneRowOfHeadDataToExcel(row, this.excelHeadProperty.getHeadByRowNum(i - startRow));
+                addOneRowOfHeadDataToExcel(row,i, this.excelHeadProperty.getHeadByRowNum(i - startRow));
             }
         }
     }
@@ -186,9 +187,9 @@ public class WriteContext {
         }
     }
 
-    private void addOneRowOfHeadDataToExcel(Row row,String headByRowNum) {
+    private void addOneRowOfHeadDataToExcel(Row row,int colNum,String headByRowNum) {
         if (headByRowNum != null) {
-            Cell cell = WorkBookUtil.createCell(row, 0, getCurrentHeadCellStyle(), headByRowNum);
+            Cell cell = WorkBookUtil.createCell(row, colNum, getCurrentHeadCellStyle(), headByRowNum);
             if (null != afterWriteHandler) {
                 this.afterWriteHandler.cell(0, cell);
             }

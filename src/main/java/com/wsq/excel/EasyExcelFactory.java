@@ -35,10 +35,11 @@ public class EasyExcelFactory {
             }
 
             @Override
-            public void doAfterAllAnalysed(AnalysisContext context) {
+            public boolean doAfterAllAnalysed(AnalysisContext context) {
+                return true;
             }
 
-            @Override
+/*            @Override
             public Map<String, Object> getParams() {
                 return null;
             }
@@ -46,7 +47,7 @@ public class EasyExcelFactory {
             @Override
             public void setParams(Map map) {
 
-            }
+            }*/
 
         }, false).read(sheet);
         return rows;
@@ -59,8 +60,8 @@ public class EasyExcelFactory {
      * @param sheet    read sheet.
      * @param listener Callback method after each row is parsed.
      */
-    public static void readBySax(InputStream in, Sheet sheet, AnalysisEventListener listener) {
-        new ExcelReader(in, null, listener).read(sheet);
+    public static boolean readBySax(InputStream in, Sheet sheet, AnalysisEventListener listener) {
+        return new ExcelReader(in, null, listener).read(sheet);
     }
 
     /**
